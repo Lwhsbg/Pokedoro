@@ -1,16 +1,16 @@
 var currentMode = "study";
 var timeLeft = 25 * 60;
 var timerInterval = null;
-
 var totalXP = Number(localStorage.getItem("pokemonXP")) || 0;
 var sessions = Number(localStorage.getItem("pokemonSessions")) || 0;
+
 
 function getPokemonStage() {
 
     if (totalXP >= 250) {
         return {
             name: "Charizard",
-            image: "charizard.jpg",
+            image: "3.jpg",
             level: 3,
             nextXP: 250,
             previousXP: 250
@@ -20,7 +20,7 @@ function getPokemonStage() {
     else if (totalXP >= 100) {
         return {
             name: "Charmeleon",
-            image: "charmeleon.jpg",
+            image: "2.jpg",
             level: 2,
             nextXP: 250,
             previousXP: 100
@@ -30,7 +30,7 @@ function getPokemonStage() {
     else {
         return {
             name: "Charmander",
-            image: "charmander.jpg",
+            image: "1.jpg",
             level: 1,
             nextXP: 100,
             previousXP: 0
