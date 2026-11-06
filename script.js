@@ -34,5 +34,25 @@ function getPokemonStage() {
 }
 function updatePokemon() {
     var pokemon = getPokemonStage();
+    document.getElementById("pokemonName").innerHTML = pokemon.name;
+    document.getElementById("pokemonImage").src = pokemon.image;
+    document.getElementById("pokemonLevel").innerHTML = "Level " + pokemon.level;
+    document.getElementById("totalXP").innerHTML = totalXP;
+    document.getElementById("sessions").innerHTML = sessions;
+    var progress = 0;
+    if (totalXP >= 250) {
+        progress = 100;
+        document.getElementById("evolutionText").innerHTML = "Your little guy reached his final form...maybe?";
+    }
+    else {
+        progress = ((totalXP - pokemon.previousXP) / (pokemon.nextXP - pokemon.previousXP)) * 100;
+           document.getElementById("evolutionText").innerHTML = (pokemon.nextXP - totalXP) + "remaining XP till next stage.";
+    }
+    document.getElementById("xpText").innerHTML = totalXP + " Total XP";
+    document.getElementById("xpProgress").style.width = progress + "%";
+}
+function updateTimer() {
+    var minutes = Math.floor(timeLeft / 60);
+    var seconds = timeLeft % 60;
     
 }
