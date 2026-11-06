@@ -48,3 +48,69 @@ h2{
 .xp-section{
     margin: 25px 0; 
 }
+.xp-bar{
+    background-color: #e5d8c4;
+    width: 100%;
+    height: 18px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+#xpProgress{
+    background-color: #f0a33b;
+    width: 0%;
+    height: 18px;
+    border-radius: 10px;
+    transition: width 0.5s;
+}
+#xpText {
+    font-weight: bold;
+}
+#evolutionText {
+    color: #777777;
+    font-size: 13px;
+}
+hr{
+    border: 1px solid #e8d9c3;
+    margin: 25px 0;
+}
+#timer {
+    font-size: 65px;
+    color: #e66b32;
+    margin: 25px 0;
+}
+button{
+    background-color: #e98546;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    margin: 5px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: bold;
+    transition: 0.2s;
+}
+button:hover{
+    background-color: #c9632e;
+    transform: translateY(-2px);
+}
+button:disabled {
+    background-color: #bdb5a8;
+    cursor: not-allowed;
+    transform: none;
+}
+#status{
+    color: #53647d;
+    min-height: 20px;
+    margin-top: 20px;
+}
+.stats{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    font-weight: bold;
+}
+.footer {
+    color: #888888;
+    font-size: 13px;
+}
