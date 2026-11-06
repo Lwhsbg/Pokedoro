@@ -54,5 +54,57 @@ function updatePokemon() {
 function updateTimer() {
     var minutes = Math.floor(timeLeft / 60);
     var seconds = timeLeft % 60;
-    
+    document.getElementById("timer").innerHTML = String(minutes).padStart(2, "0") + ":" + String(seconds).padStart(2, "0");
+}
+function setMode(mode) {
+    if (timerInterval !== null) {
+        return;
+    }
+    currentMode = mode;
+    if (currentMode == "study") {
+        timeLeft = 25 * 60;
+        document.getElementById("status").innerHTML = "Lock-in gng.";
+    }
+    else{
+        timeLeft = 5 * 60;
+        document.getElementById("status").innerHTML = "Break?? alright.";
+    }
+    updateTimer();
+}
+function startTimer() {
+    if (timerInterval !== null) {
+        clearInterval(timerInterval);
+        timerInterval = null;
+        document.getElementById("startButton").innerHTML = "Start";
+        return;
+    }
+    document.getElementById("startButton").innerHTML = "Pause";
+    timerInterval = setInterval(function(){
+        timeLeft--;
+        updateTimer();
+        if (timeLeft <= 0) {
+            finishSession();
+        }
+
+    }, 1000);
+}
+function finishSession() {
+    clearInterval(timerInterval);
+    timerInterval = null;
+    document.getElementById("startButton").innerHTML = "Start";
+    if (currentMode == "study") {
+        var oldPokemon = getPokemonStage().name;
+        totalXP = totalXP + 25;
+        sessions++;
+        localStorage.setItem("pokemonXP", totalXP);
+        localStorage.setItem("pokemonSessions", sessions);
+        var newPokemon = getPokemonStage().name;
+        if (oldPokemon !== newPokemon){
+            document.getElementById("status").innerHTML = "Wow vro really locked in here, charmander is " + newPokemon + "now.";
+        }
+        else{
+            document
+        }
+
+    }
 }
