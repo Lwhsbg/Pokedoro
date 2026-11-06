@@ -10,9 +10,9 @@
         <div class = "main-container">
             <h2>Your Pokemon</h2>
             <div class = "pokemon-box">
-                <img>
+                <img id = "pokemonImage" src = "charmander.jpg" alt = "pokemon">
                 <h2 id = "pokemonName">Charmander</h2>
-                <p id = "pokemonLevel1">Level 1</p>
+                <p id = "pokemonLevel">Level 1</p>
             </div>
             <div class = "xp-section">
                 <p id = "xpText">0 / 100 XP</p>
@@ -29,7 +29,8 @@
             </div>
             <h1 id = "timer">25:00</h1>
             <div class = "timer-buttons">
-                <button onclick = "starttimer()" id = "startButton">Start</button>
+                <button onclick = "startTimer()" id = "startButton">Start</button>
+                <button onclick = "skipTime()">Skip 5 Minutes</button>
                 <button onclick = "resetTimer()">Reset</button>
             </div>
             <p id = "status">Ready..?</p>
