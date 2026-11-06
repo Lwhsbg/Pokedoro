@@ -103,8 +103,26 @@ function finishSession() {
             document.getElementById("status").innerHTML = "Wow vro really locked in here, charmander is " + newPokemon + "now.";
         }
         else{
-            document
+            document.getElementById("status").innerHTML = "Lock-in complete, you earned 25 XP.";
         }
-
+        updatePokemon();
     }
+    else{
+        document.getElementById("status").innerHTML = "Break completed, if you take another one you are a bum.";
+    }
+    timeLeft = currentMode == "study" ? 25 * 60 : 5 * 60;
+    updateTimer();
+}
+function resetTimer(){
+    clearInterval(timerInterval);
+    timerInterval = null;
+    document.getElementById("startButton").innerHTML = "Start";
+    if (currentMode == "study") {
+        timeLeft = 25 * 60;
+    }
+    else{
+        timeLeft = 5 * 60;
+    }
+    document.getElementById("status").innerHTML = "I reset the timer. Now come again if you wanna succeed in life.";
+    updateTimer();
 }
